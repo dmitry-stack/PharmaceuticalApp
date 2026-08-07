@@ -7,6 +7,9 @@
   "scripts": {
     "start": "webpack serve",
     "build": "webpack",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
     "prepare": "husky"
   },
   "keywords": [],
