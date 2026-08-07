@@ -1,0 +1,11 @@
+p {
+  font-size: 17px;
+  color: var(--secondary-color);
+  margin: 16px 8px 16px 16px;
+}
+
+h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin: 16px 8px 16px 16px;
+}

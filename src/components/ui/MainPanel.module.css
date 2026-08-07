@@ -1,0 +1,5 @@
+.mainPanel {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--background-color);
+}
