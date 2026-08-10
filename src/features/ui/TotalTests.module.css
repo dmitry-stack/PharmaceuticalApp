@@ -1,0 +1,149 @@
+.totalTests p {
+  /* margin: 4px 0 0; */
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+}
+
+.totalTests {
+  width: 100%;
+  padding: 24px 16px 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-1);
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 12px 0 0;
+  color: var(--color-text-3);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.datePicker {
+  width: 324px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--color-border-2);
+  border-radius: 2px;
+
+  background: var(--color-surface-base);
+  color: var(--color-text-3);
+
+  font: inherit;
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.datePicker:hover {
+  border-color: var(--color-text-3);
+}
+
+.datePicker svg {
+  flex-shrink: 0;
+}
+
+.chart {
+  width: 100%;
+  height: 362px;
+}
+
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 10;
+  min-width: 180px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background-color: var(--background-color-header, #ffffff);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownItem {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm, 4px);
+  color: var(--primary-color, #212529);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: var(--background-color, #f8f9fa);
+}
+
+.dropdownItem.active {
+  font-weight: 600;
+  color: var(--accent-color, #0d6efd);
+}
+
+@media (max-width: 768px) {
+  .totalTests {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .totalTests {
+    padding: 20px 12px 0;
+  }
+
+  .header {
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
+
+  .datePicker {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .chart {
+    height: 400px;
+  }
+}
+
+.totalTests h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  line-height: 1.2;
+}

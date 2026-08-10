@@ -24,6 +24,14 @@
 
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-header: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  --color-text-1: #1f2937;
+  --color-text-3: #6b7280;
+  --color-border-2: #d1d5db;
+  --color-surface-base: #ffffff;
+  --color-surface-raised: #f8fafc;
+  --color-chart-1: #3874ff;
+  --color-chart-2: #5cbcf0;
 }
 
 html {
