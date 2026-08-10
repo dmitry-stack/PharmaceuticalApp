@@ -6,8 +6,10 @@ export function Layout({ children }) {
   return (
     <div className={styles.layout}>
       <Navbar />
-      <Header />
-      <main className={styles.content}>{children}</main>
+      <div className={styles.content}>
+        <Header />
+        <main>{children}</main>
+      </div>
     </div>
   );
 }

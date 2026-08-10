@@ -1,11 +1,15 @@
-p {
+.header p {
   font-size: 17px;
   color: var(--secondary-color);
-  margin: 16px 8px 16px 16px;
 }
 
-h1 {
+.header {
+  margin-bottom: 50px;
+  height: 3.5rem;
+}
+
+.header h1 {
   font-size: 24px;
   color: var(--primary-color);
-  margin: 16px 8px 16px 16px;
+  margin-bottom: 8px;
 }
