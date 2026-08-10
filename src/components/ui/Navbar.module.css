@@ -59,6 +59,7 @@
   cursor: pointer;
   background: transparent;
   border: none;
+  text-decoration: none;
 }
 
 .navItem:hover,
