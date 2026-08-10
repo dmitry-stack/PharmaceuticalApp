@@ -8,6 +8,7 @@ import sunIcon from "../../assets/sun.svg";
 import notificationIcon from "../../assets/notifications.svg";
 import settingsIcon from "../../assets/settings.svg";
 import avatar from "../../assets/avatar.png";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -31,22 +32,24 @@ export function Navbar() {
           id="main-nav"
           className={`${styles.navCenter} ${open ? styles.open : ""}`}
         >
-          <button
+          <Link
+            to="/"
             className={styles.navItem}
             type="button"
             onClick={() => setOpen(false)}
           >
             <img src={homeIcon} alt="Home" />
             Home
-          </button>
-          <button
+          </Link>
+          <Link
+            to="/tables"
             className={styles.navItem}
             type="button"
             onClick={() => setOpen(false)}
           >
             <img src={tablesIcon} alt="Tables" />
             Tables
-          </button>
+          </Link>
           <button
             className={styles.navItem}
             type="button"
