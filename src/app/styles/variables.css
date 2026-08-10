@@ -26,11 +26,18 @@
   --shadow-header: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+html {
+  min-height: 100%;
+  background-color: var(--background-color);
+}
+
 body {
+  min-height: 100%;
   font-family: var(--font-family);
   background-color: var(--background-color);
   color: var(--primary-color);
-
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
