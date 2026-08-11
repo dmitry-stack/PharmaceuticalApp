@@ -2,7 +2,7 @@ import { MainPanel } from "./components/ui/MainPanel";
 import { Layout } from "./layouts/Layout";
 import { Tables } from "./features/ui/Tables";
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
