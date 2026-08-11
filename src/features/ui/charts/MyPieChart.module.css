@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.chart {
+  position: relative;
+  width: 99px;
+  height: 99px;
+  margin: 16px 0;
+}
+
+.centerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.centerTextValue {
+  font-size: 22px;
+
+  color: var(--secondary-color);
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.legendItem::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.priclinical::before {
+  background-color: #3874ff;
+}
+
+.clinical::before {
+  background-color: #adc5ff;
+}
+
+.approvals::before {
+  background-color: #0080c7;
+}
+
+.legendLabel {
+  color: var(--secondary-color);
+  font-size: 15px;
+}
+
+.legendValue {
+  margin-left: auto;
+  color: var(--secondary-color);
+  font-size: 15px;
+  font-weight: 500;
+}
