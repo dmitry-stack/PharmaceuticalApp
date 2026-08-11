@@ -1,18 +1,7 @@
 import * as styles from "./TotalTests.module.css";
 import { useState } from "react";
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
-
 import dropdownArrow from "../../assets/dropdown-arrow.svg";
-
+import { MyLineChart } from "./charts/MyLineChart";
 const DATA_BY_RANGE = {
   "May 1 - 31, 2022": [
     { date: "01 May", total: 10, previous: 18 },
@@ -103,78 +92,7 @@ export function TotalTests() {
         </header>
 
         <div className={styles.chart}>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart
-              data={data}
-              margin={{
-                top: 8,
-                right: 0,
-                left: 0,
-                bottom: 0,
-              }}
-            >
-              <CartesianGrid
-                vertical={true}
-                horizontal={false}
-                stroke="var(--color-border-2)"
-                strokeDasharray="0"
-              />
-
-              <XAxis
-                dataKey="date"
-
-                axisLine={{
-                  stroke: "var(--color-border-2)",
-                }}
-                tickLine={false}
-                tick={{
-                  fill: "var(--color-text-3)",
-                  fontSize: 16,
-                }}
-                interval="preserveStartEnd"
-              />
-
-              <YAxis hide domain={[0, "dataMax + 10"]} />
-
-              <Tooltip
-                cursor={{
-                  stroke: "var(--color-border-2)",
-                }}
-                contentStyle={{
-                  backgroundColor: "var(--color-surface-raised)",
-                  border: "1px solid var(--color-border-2)",
-                  borderRadius: "8px",
-                }}
-              />
-
-              <Line
-                type="linear"
-                dataKey="total"
-                stroke="var(--color-chart-1)"
-                strokeWidth={3}
-                dot={false}
-                activeDot={{
-                  r: 5,
-                  strokeWidth: 2,
-                  fill: "var(--color-surface-base)",
-                }}
-              />
-
-              <Line
-                type="linear"
-                dataKey="previous"
-                stroke="var(--color-chart-2)"
-                strokeWidth={3}
-                strokeDasharray="2 5"
-                dot={false}
-                activeDot={{
-                  r: 5,
-                  strokeWidth: 2,
-                  fill: "var(--color-surface-base)",
-                }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <MyLineChart data={data} />
         </div>
       </section>
     </>
