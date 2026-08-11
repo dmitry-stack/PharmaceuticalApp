@@ -50,13 +50,13 @@
 }
 
 .legendLabel {
-  color: var(--secondary-color, #6c757d);
+  color: var(--secondary-color);
   font-size: 15px;
 }
 
 .legendValue {
   margin-left: auto;
-  color: var(--secondary-color, #6c757d);
+  color: var(--secondary-color);
   font-size: 15px;
   font-weight: 500;
 }
