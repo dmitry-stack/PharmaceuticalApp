@@ -1,7 +1,7 @@
 import { Header } from "../components/ui/Header";
 import { Navbar } from "../components/ui/Navbar";
 import * as styles from "./Layout.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 
 const headers = {
   "/": {
@@ -14,7 +14,7 @@ const headers = {
   },
 };
 
-export function Layout({ children }) {
+export function Layout() {
   const location = useLocation();
   const header = headers[location.pathname] ?? headers["/"];
   return (
@@ -22,7 +22,9 @@ export function Layout({ children }) {
       <Navbar />
       <div className={styles.content}>
         <Header header={header.title} description={header.description} />
-        <main>{children}</main>
+        <main>
+          <Outlet />
+        </main>
       </div>
     </div>
   );

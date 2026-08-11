@@ -13,6 +13,12 @@ import { Link } from "react-router-dom";
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const { type, id } = JSON.parse(
+    localStorage.getItem("lastOpenProduct") || "{}",
+  );
+  console.log(type);
+  console.log(id);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.wrapper}>
@@ -50,14 +56,16 @@ export function Navbar() {
             <img src={tablesIcon} alt="Tables" />
             Tables
           </Link>
-          <button
+
+          <Link
+            to={`/process/${type}/${id}`}
             className={styles.navItem}
             type="button"
             onClick={() => setOpen(false)}
           >
-            <img src={processesIcon} alt="Processes" />
-            Processes
-          </button>
+            <img src={processesIcon} alt="Process" />
+            Process
+          </Link>
           <button
             className={styles.navItem}
             type="button"
