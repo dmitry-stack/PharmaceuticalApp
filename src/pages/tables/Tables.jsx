@@ -4,7 +4,7 @@ import success from "../../shared/assets/tables/success.svg";
 import failure from "../../shared/assets/tables/failure.svg";
 import nextArrow from "../../shared/assets/tables/nextArrow.svg";
 import { ProcessCell } from "./tablesCells/ProcessCell";
-import { StatusCell } from "./tablesCells/statusCell";
+import { StatusCell } from "./tablesCells/StatusCell";
 import { useGetMedicineQuery } from "../../entities/medicine/api/medicineApi";
 import { useEffect } from "react";
 const PAGE_SIZE = 6;
