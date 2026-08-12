@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { dummyJsonApi } from "../../shared/api/dummyJsonApi.js";
+import { medicineApi } from "../../entities/medicine/api/medicineApi.js";
 
 export const store = configureStore({
   reducer: {
-    [dummyJsonApi.reducerPath]: dummyJsonApi.reducer,
+    [medicineApi.reducerPath]: medicineApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(dummyJsonApi.middleware),
+    getDefaultMiddleware().concat(medicineApi.middleware),
 });

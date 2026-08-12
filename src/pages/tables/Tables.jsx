@@ -1,11 +1,11 @@
 import * as styles from "./Tables.module.css";
 import { Link, useSearchParams } from "react-router-dom";
-import success from "../../assets/success.svg";
-import failure from "../../assets/failure.svg";
-import nextArrow from "../../assets/nextArrow.svg";
+import success from "../../shared/assets/success.svg";
+import failure from "../../shared/assets/failure.svg";
+import nextArrow from "../../shared/assets/nextArrow.svg";
 import { ProcessCell } from "./tablesCells/ProcessCell";
 import { StatusCell } from "./tablesCells/statusCell";
-import { useGetMedicineQuery } from "../../shared/api/dummyJsonApi";
+import { useGetMedicineQuery } from "../../entities/medicine/api/medicineApi";
 import { useState, useEffect } from "react";
 const PAGE_SIZE = 6;
 export function Tables() {

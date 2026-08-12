@@ -1,11 +1,11 @@
 import * as styles from "./MainPanel.module.css";
-import { MainSummary } from "../../features/ui/MainSummary";
-import { TotalTests } from "../../features/ui/TotalTests";
-import { MainPanelCard } from "../../features/ui/MainPanelCard";
-import { MyLineChart } from "../../features/ui/charts/MyLineChart";
-import { MyPieChart } from "../../features/ui/charts/MyPieChart";
-import { MyPieChartHalf } from "../../features/ui/charts/MyPieChartHalf";
-import { MyBarChart } from "../../features/ui/charts/MyBarChart";
+import { MainSummary } from "../../features/main-summary/MainSummary";
+import { TotalTests } from "../../features/total-tests/TotalTests";
+import { MainPanelCard } from "../../shared/ui/cards/MainPanelCard";
+import { MyLineChart } from "../../shared/ui/charts/MyLineChart";
+import { MyPieChart } from "../../shared/ui/charts/MyPieChart";
+import { MyPieChartHalf } from "../../shared/ui/charts/MyPieChartHalf";
+import { MyBarChart } from "../../shared/ui/charts/MyBarChart";
 
 const dataCompact = [
   { date: "01 Jul", total: 45, previous: 30 },

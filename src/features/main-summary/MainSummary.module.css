@@ -18,7 +18,6 @@
 }
 
 .mainSummary p {
-  /* margin: 4px 0 0; */
   color: var(--secondary-color);
   font-size: 0.95rem;
 }

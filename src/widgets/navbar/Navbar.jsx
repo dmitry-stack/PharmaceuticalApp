@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import * as styles from "./Navbar.module.css";
-import homeIcon from "../../assets/home.svg";
-import tablesIcon from "../../assets/tables.svg";
-import processesIcon from "../../assets/process.svg";
-import documentationIcon from "../../assets/documentations.svg";
-import sunIcon from "../../assets/sun.svg";
-import notificationIcon from "../../assets/notifications.svg";
-import settingsIcon from "../../assets/settings.svg";
-import avatar from "../../assets/avatar.png";
+import homeIcon from "../../shared/assets/home.svg";
+import tablesIcon from "../../shared/assets/tables.svg";
+import processesIcon from "../../shared/assets/process.svg";
+import documentationIcon from "../../shared/assets/documentations.svg";
+import sunIcon from "../../shared/assets/sun.svg";
+import notificationIcon from "../../shared/assets/notifications.svg";
+import settingsIcon from "../../shared/assets/settings.svg";
+import avatar from "../../shared/assets/avatar.png";
 import { Link } from "react-router-dom";
 
 export function Navbar() {

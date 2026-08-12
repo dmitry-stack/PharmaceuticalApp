@@ -33,8 +33,8 @@ const mapProductToMedicalData = (product) => {
     ],
   };
 };
-export const dummyJsonApi = createApi({
-  reducerPath: "dummyJsonApi",
+export const medicineApi = createApi({
+  reducerPath: "medicineApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com" }),
   endpoints: (builder) => ({
     getMedicine: builder.query({
@@ -50,4 +50,4 @@ export const dummyJsonApi = createApi({
   }),
 });
 
-export const { useGetMedicineQuery } = dummyJsonApi;
+export const { useGetMedicineQuery } = medicineApi;

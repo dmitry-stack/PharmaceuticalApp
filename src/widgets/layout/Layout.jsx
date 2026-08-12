@@ -1,5 +1,5 @@
-import { Header } from "../components/ui/Header";
-import { Navbar } from "../components/ui/Navbar";
+import { Header } from "../header/Header";
+import { Navbar } from "../navbar/Navbar";
 import * as styles from "./Layout.module.css";
 import { useLocation, Outlet } from "react-router-dom";
 
