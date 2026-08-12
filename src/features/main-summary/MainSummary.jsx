@@ -1,6 +1,6 @@
-import awaitingresults from "../../shared/assets/awaitingresults.svg";
-import onhold from "../../shared/assets/onhold.svg";
-import outofstock from "../../shared/assets/outofstock.svg";
+import awaitingresults from "../../shared/assets/summary/awaitingresults.svg";
+import onhold from "../../shared/assets/summary/onhold.svg";
+import outofstock from "../../shared/assets/summary/outofstock.svg";
 import * as styles from "./MainSummary.module.css";
 export function MainSummary() {
   return (

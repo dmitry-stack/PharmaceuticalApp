@@ -1,8 +1,8 @@
 import * as styles from "./Tables.module.css";
 import { Link, useSearchParams } from "react-router-dom";
-import success from "../../shared/assets/success.svg";
-import failure from "../../shared/assets/failure.svg";
-import nextArrow from "../../shared/assets/nextArrow.svg";
+import success from "../../shared/assets/tables/success.svg";
+import failure from "../../shared/assets/tables/failure.svg";
+import nextArrow from "../../shared/assets/tables/nextArrow.svg";
 import { ProcessCell } from "./tablesCells/ProcessCell";
 import { StatusCell } from "./tablesCells/statusCell";
 import { useGetMedicineQuery } from "../../entities/medicine/api/medicineApi";
