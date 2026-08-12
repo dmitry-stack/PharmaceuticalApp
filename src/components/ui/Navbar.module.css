@@ -7,7 +7,7 @@
   align-items: center;
   background-color: var(--background-color-header);
   box-shadow: var(--shadow-header);
-  border-bottom: 1px solid rgba(16, 24, 40, 0.08);
+  border-bottom: 1px solid var(--navbar-border);
   z-index: 10;
 }
 
@@ -38,7 +38,7 @@
   padding: 14px 16px;
   background-color: var(--background-color-header);
   box-shadow: var(--shadow-header);
-  border-top: 1px solid rgba(16, 24, 40, 0.08);
+  border-top: 1px solid var(--navbar-border);
   z-index: 20;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .sunIcon {
-  background-color: rgba(255, 243, 227, 0.95);
+  background-color: #fff3e3;
   border-radius: 50%;
 }
 

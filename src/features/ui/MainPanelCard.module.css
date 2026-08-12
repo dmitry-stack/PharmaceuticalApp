@@ -1,6 +1,6 @@
 .mainPanelCard {
-  background-color: #ffffff;
-  border: 1px solid #e0e3eb;
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-3);
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -20,7 +20,7 @@
 .heading h2 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--primary-color, #1a1a1a);
+  color: var(--primary-color);
   margin: 0;
   line-height: 1.2;
 }
@@ -34,7 +34,7 @@
 .total {
   font-size: 18px;
   font-weight: 600;
-  color: var(--primary-color, #1a1a1a);
+  color: var(--primary-color);
 }
 
 .percentageChange {
@@ -54,7 +54,7 @@
 
 .period {
   font-size: 13px;
-  color: var(--secondary-color, #6c757d);
+  color: var(--secondary-color);
   margin: 0 0 12px 0;
 }
 

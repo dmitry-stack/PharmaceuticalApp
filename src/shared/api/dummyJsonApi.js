@@ -23,10 +23,13 @@ const mapProductToMedicalData = (product) => {
     processTotal: total,
 
     statusSegments: [
-      { value: ((product.id * 7) % 30) + 10, color: "#0097EB" },
-      { value: ((product.id * 3) % 15) + 5, color: "#ED2000" },
-      { value: ((product.id * 11) % 40) + 10, color: "#E5780B" },
-      { value: ((product.id * 5) % 20) + 10, color: "#25B003" },
+      { value: ((product.id * 7) % 30) + 10, color: "var(--status-segment-1)" },
+      { value: ((product.id * 3) % 15) + 5, color: "var(--status-segment-2)" },
+      {
+        value: ((product.id * 11) % 40) + 10,
+        color: "var(--status-segment-3)",
+      },
+      { value: ((product.id * 5) % 20) + 10, color: "var(--status-segment-4)" },
     ],
   };
 };
