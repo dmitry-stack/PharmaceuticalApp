@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as styles from "./Navbar.module.css";
 import homeIcon from "../../shared/assets/home.svg";
 import tablesIcon from "../../shared/assets/tables.svg";

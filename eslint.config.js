@@ -27,12 +27,20 @@ export default [
     rules: {
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      "react/jsx-uses-vars": "error",
       "no-unused-vars": "warn",
     },
     settings: {
       react: {
         version: "detect",
       },
+    },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: globals.node,
     },
   },
 ];

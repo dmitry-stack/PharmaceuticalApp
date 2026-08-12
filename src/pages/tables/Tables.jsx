@@ -6,7 +6,7 @@ import nextArrow from "../../shared/assets/nextArrow.svg";
 import { ProcessCell } from "./tablesCells/ProcessCell";
 import { StatusCell } from "./tablesCells/statusCell";
 import { useGetMedicineQuery } from "../../entities/medicine/api/medicineApi";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 const PAGE_SIZE = 6;
 export function Tables() {
   const [searchParams, setSearchParams] = useSearchParams();
