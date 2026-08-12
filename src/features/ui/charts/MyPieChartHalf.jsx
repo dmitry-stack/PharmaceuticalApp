@@ -1,4 +1,4 @@
-import { PieChart, Pie } from "recharts";
+import { PieChart, Pie, Tooltip } from "recharts";
 import * as styles from "./MyPieChartHalf.module.css";
 
 export function MyPieChartHalf({
@@ -7,14 +7,15 @@ export function MyPieChartHalf({
   colors = ["#3874FF", "#ADC5FF"],
 }) {
   const data = [
-    { name: "", value, fill: colors[0] },
-    { name: "", value: other, fill: colors[1] },
+    { name: "Tested", value, fill: colors[0] },
+    { name: "Non-Tested", value: other, fill: colors[1] },
   ];
 
   return (
     <div className={styles.container}>
       <div className={styles.chart}>
         <PieChart width={86} height={50}>
+          <Tooltip />
           <Pie
             data={data}
             dataKey="value"

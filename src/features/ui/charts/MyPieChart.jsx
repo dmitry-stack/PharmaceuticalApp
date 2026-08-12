@@ -1,4 +1,4 @@
-import { Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Pie, PieChart, Tooltip, ResponsiveContainer } from "recharts";
 import * as styles from "./MyPieChart.module.css";
 
 const data = [
@@ -25,6 +25,7 @@ export function MyPieChart({ isAnimationActive = true }) {
         </div>
         <ResponsiveContainer width="100%" height="100%">
           <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+            <Tooltip />
             <Pie
               data={data}
               innerRadius="90%"

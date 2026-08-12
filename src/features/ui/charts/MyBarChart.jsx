@@ -28,7 +28,16 @@ export function MyBarChart() {
             margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
             barCategoryGap="30%"
           >
-            <Tooltip cursor={{ fill: "transparent" }} />
+            <Tooltip
+              cursor={{ fill: "transparent" }}
+              contentStyle={{
+                minWidth: 60,
+                maxWidth: 120,
+                maxHeight: 60,
+                padding: 0,
+                fontSize: "0.85rem",
+              }}
+            />
             <Bar
               dataKey="fillValue"
               stackId="a"
