@@ -1,8 +1,99 @@
 import * as styles from "./Tables.module.css";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import success from "../../assets/success.svg";
+import failure from "../../assets/failure.svg";
+import nextArrow from "../../assets/nextArrow.svg";
+import { ProcessCell } from "./tablesCells/ProcessCell";
+import { StatusCell } from "./tablesCells/statusCell";
+import { useGetMedicineQuery } from "../../shared/api/dummyJsonApi";
+import { useState, useEffect } from "react";
+const PAGE_SIZE = 6;
 export function Tables() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const isViewAll = searchParams.get("viewAll") === "true";
+
+  const skip = PAGE_SIZE * (currentPage - 1);
+  const { data, error, isLoading } = useGetMedicineQuery({
+    limit: isViewAll ? 0 : PAGE_SIZE,
+    skip: isViewAll ? 0 : skip,
+  });
+  useEffect(() => {
+    if (!searchParams.get("page") && !searchParams.get("viewAll")) {
+      setSearchParams({ page: 1 }, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Oh no, there was an error</div>;
+  if (!data?.products) return null;
+  const total = data.total;
+  const products = data.products;
+  const startItem = isViewAll ? 1 : skip + 1;
+  const endItem = isViewAll ? total : Math.min(skip + PAGE_SIZE, total);
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+
+  const handlePrevPage = () => {
+    setSearchParams({ page: Math.max(currentPage - 1, 1) });
+  };
+
+  const handleNextPage = () => {
+    setSearchParams({ page: Math.min(currentPage + 1, totalPages) });
+  };
+
+  const handleToggleViewAll = () => {
+    if (isViewAll) {
+      setSearchParams({ page: 1 });
+    } else {
+      setSearchParams({ viewAll: "true" });
+    }
+  };
+
+  const actionBar = (
+    <div className={styles.paginationControls}>
+      <span className={styles.rangeInfo}>
+        {startItem} to {endItem} items of {total}
+      </span>
+
+      <div className={styles.paginationActions}>
+        <button onClick={handleToggleViewAll} className={styles.viewAllBtn}>
+          {isViewAll ? "Show Paginated" : "View All"}
+        </button>
+
+        {!isViewAll && (
+          <div className={styles.pageButtons}>
+            <button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className={styles.pageBtn}
+            >
+              <img
+                src={nextArrow}
+                alt="previous"
+                style={{ transform: "scaleX(-1)" }}
+              />
+            </button>
+            <span className={styles.currentPage}>
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className={styles.pageBtn}
+            >
+              <img src={nextArrow} alt="next" />
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className={styles.tableWrapper}>
+      {isViewAll && <div className={styles.topActions}>{actionBar}</div>}
+
       <table className={styles.container}>
         <thead>
           <tr>
@@ -16,57 +107,42 @@ export function Tables() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">
-              <Link to="/process/medicine/47890" className={styles.link}>
-                Medicine #47890
-              </Link>
-            </th>
-            <td>Serenity Health Clinic</td>
-            <td>Dec 12, 2018</td>
-            <td>Dec 12, 2026</td>
+          {products.map((med) => (
+            <tr key={`${med.type}-${med.id}`}>
+              <th scope="row">
+                <Link
+                  to={`/process/${med.type}/${med.id}`}
+                  className={styles.link}
+                >
+                  {`${med.title} #${med.id}`}
+                </Link>
+              </th>
+              <td>{med.location}</td>
+              <td>{med.startDate}</td>
+              <td>{med.endDate}</td>
 
-            <td>85%</td>
-            <td>Phase 2</td>
-            <td>In Progress</td>
-          </tr>
+              <td>
+                <img
+                  src={med.successReaction === "success" ? success : failure}
+                  alt={med.successReaction}
+                />
+              </td>
 
-          <tr>
-            <th scope="row">
-              <Link to="/process/vaccine/122" className={styles.link}>
-                Vaccine #122
-              </Link>
-            </th>
-            <td>City Hospital</td>
-            <td>Jan 10, 2020</td>
-            <td>Mar 15, 2022</td>
-            <td>95%</td>
-            <td>Phase 3</td>
-            <td>Completed</td>
-          </tr>
-
-          <tr>
-            <th scope="row">
-              <Link to="/process/medicine/56813" className={styles.link}>
-                Medicine #56813
-              </Link>
-            </th>
-            <td>Global Labs</td>
-            <td>Feb 20, 2022</td>
-            <td>Feb 20, 2023</td>
-            <td>60%</td>
-            <td>Phase 1</td>
-            <td>On Hold</td>
-          </tr>
+              <td>
+                <ProcessCell
+                  current={med.processCurrent}
+                  total={med.processTotal}
+                />
+              </td>
+              <td>
+                <StatusCell segments={med.statusSegments} />
+              </td>
+            </tr>
+          ))}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="7" className={styles.footerCell}>
-              1 to 3 items of 6
-            </td>
-          </tr>
-        </tfoot>
       </table>
+
+      {!isViewAll && <div className={styles.bottomActions}>{actionBar}</div>}
     </div>
   );
 }

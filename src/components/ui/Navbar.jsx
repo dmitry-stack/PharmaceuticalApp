@@ -16,8 +16,6 @@ export function Navbar() {
   const { type, id } = JSON.parse(
     localStorage.getItem("lastOpenProduct") || "{}",
   );
-  console.log(type);
-  console.log(id);
 
   return (
     <nav className={styles.navbar}>

@@ -1,0 +1,12 @@
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: 120px;
+  height: 4px;
+}
+
+.statusSegment {
+  height: 100%;
+  border-radius: 2px;
+}

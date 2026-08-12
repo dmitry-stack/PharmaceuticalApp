@@ -24,11 +24,86 @@
   text-transform: uppercase;
 }
 
-.footerCell {
-  text-align: right;
+.container tbody td,
+.container tbody th {
   color: var(--secondary-color);
-  padding-top: 16px;
+}
+
+.footerCell {
+  padding: 16px 0;
   border-bottom: none !important;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+  width: 100%;
+}
+
+.topActions,
+.bottomActions {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.bottomActions {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.rangeInfo {
+  color: var(--secondary-color, #6c757d);
+  font-size: 13px;
+}
+
+.paginationActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.viewAllBtn {
+  background: none;
+  border: none;
+  color: #3874ff;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.viewAllBtn:hover {
+  text-decoration: underline;
+}
+
+.pageButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 28px;
+  border: 1px solid #e0e3eb;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.currentPage {
+  font-size: 13px;
+  color: var(--secondary-color, #6c757d);
 }
 
 .link {
