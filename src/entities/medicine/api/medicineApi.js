@@ -47,7 +47,13 @@ export const medicineApi = createApi({
         };
       },
     }),
+    getMedicineById: builder.query({
+      query: (id) => `products/${id}`,
+      transformResponse: (response) => {
+        return mapProductToMedicalData(response);
+      },
+    }),
   }),
 });
 
-export const { useGetMedicineQuery } = medicineApi;
+export const { useGetMedicineQuery, useGetMedicineByIdQuery } = medicineApi;

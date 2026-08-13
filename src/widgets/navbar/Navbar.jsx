@@ -9,6 +9,7 @@ import notificationIcon from "@shared/assets/navbar/notifications.svg";
 import settingsIcon from "@shared/assets/navbar/settings.svg";
 import avatar from "@shared/assets/navbar/avatar.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,13 @@ export function Navbar() {
   const { type, id } = JSON.parse(
     localStorage.getItem("lastOpenProduct") || "{}",
   );
+
+  const lastProduct = useSelector((state) => state.lastProduct);
+
+  const processPath =
+    lastProduct?.type && lastProduct?.id
+      ? `/process/${lastProduct.type}/${lastProduct.id}`
+      : "/process";
 
   return (
     <nav className={styles.navbar}>
@@ -56,9 +64,8 @@ export function Navbar() {
           </Link>
 
           <Link
-            to={`/process/${type}/${id}`}
+            to={processPath}
             className={styles.navItem}
-            type="button"
             onClick={() => setOpen(false)}
           >
             <img src={processesIcon} alt="Process" />
