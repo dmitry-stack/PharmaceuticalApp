@@ -1,0 +1,34 @@
+.mainPanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .mainPanel {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+  }
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+}

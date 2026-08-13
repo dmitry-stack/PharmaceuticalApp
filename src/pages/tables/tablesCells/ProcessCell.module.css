@@ -1,0 +1,26 @@
+.processWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 120px;
+}
+
+.processText {
+  font-size: 13px;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.processTrack {
+  width: 100%;
+  height: 4px;
+  background-color: var(--process-track);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.processFill {
+  height: 100%;
+  background-color: var(--process-fill);
+  border-radius: 2px;
+}

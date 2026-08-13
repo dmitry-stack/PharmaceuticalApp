@@ -1,7 +1,7 @@
-import { MainPanel } from "./components/ui/MainPanel";
-import { Layout } from "./layouts/Layout";
-import { Tables } from "./features/ui/Tables";
-import { Process } from "./features/ui/Process";
+import { MainPanel } from "./pages/dashboard/MainPanel";
+import { Layout } from "./widgets/layout/Layout";
+import { Tables } from "./pages/tables/Tables";
+import { Process } from "./pages/process/Process";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
