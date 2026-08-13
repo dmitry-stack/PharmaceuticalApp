@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { medicineApi } from "../../entities/medicine/api/medicineApi.js";
+import { medicineApi } from "@entities/medicine/api/medicineApi.js";
 
 export const store = configureStore({
   reducer: {

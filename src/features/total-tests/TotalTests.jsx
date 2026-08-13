@@ -1,7 +1,7 @@
 import * as styles from "./TotalTests.module.css";
 import { useState } from "react";
-import dropdownArrow from "../../shared/assets/dropdown-arrow.svg";
-import { MyLineChart } from "../../shared/ui/charts/MyLineChart";
+import dropdownArrow from "@shared/assets/dropdown-arrow.svg";
+import { MyLineChart } from "@shared/ui/charts/MyLineChart";
 const DATA_BY_RANGE = {
   "May 1 - 31, 2022": [
     { date: "01 May", total: 10, previous: 18 },
