@@ -14,16 +14,12 @@ import { useSelector } from "react-redux";
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const { type, id } = JSON.parse(
-    localStorage.getItem("lastOpenProduct") || "{}",
-  );
-
   const lastProduct = useSelector((state) => state.lastProduct);
 
   const processPath =
     lastProduct?.type && lastProduct?.id
       ? `/process/${lastProduct.type}/${lastProduct.id}`
-      : "/process";
+      : "/tables";
 
   return (
     <nav className={styles.navbar}>
