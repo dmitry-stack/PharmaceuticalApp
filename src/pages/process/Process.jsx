@@ -7,8 +7,6 @@ import * as styles from "./Process.module.css";
 import { DrugCard } from "@/shared/ui/cards/DrugCard";
 import { AboutCard } from "@/shared/ui/cards/AboutCard";
 import { AdditionalInfoCard } from "@/shared/ui/cards/AdditionalInfoCard";
-const aboutDescription =
-  "We will be conducting clinical trials of the new drug Migracalm-X, which is designed to treat acute forms of migraines. We are going to test its effectiveness on 200 patients who have been suffering from this disorder for many years. The upcoming clinical trials will allow us to evaluate the safety and efficacy of the drug, as well as obtain important data for its registration and release on the market.";
 
 export function Process() {
   const { type, id } = useParams();
@@ -24,25 +22,23 @@ export function Process() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Oh no, there was an error</div>;
 
+  const title = data?.title
+    ? data.title.charAt(0).toUpperCase() + data.title.slice(1) + " #" + id
+    : "";
+
   return (
     <div className={styles.container}>
       <div className={styles.mainContent}>
         <DrugCard
-          title={
-            data?.title
-              ? data.title.charAt(0).toUpperCase() + data.title.slice(1)
-              : ""
-          }
-          description={"Tavern on the Greend, New York"}
-          date={"28th June - 2nd July 2022"}
-          time={"10 am - 4 pm Eastern Daylight Time "}
-          location={"434 Rockaway Ave, ,BrooklynNew York"}
-          postCode={"11212-5636"}
+          title={title}
+          startDate={data.startDate}
+          endDate={data.endDate}
+          description={data.location}
         />
-        <AboutCard description={aboutDescription} />
+        <AboutCard description={data.description} />
       </div>
       <div className={styles.sidebar}>
-        <AdditionalInfoCard />
+        <AdditionalInfoCard clinicName={data.location} tags={data.tags} />
       </div>
     </div>
   );

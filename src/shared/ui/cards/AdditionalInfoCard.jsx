@@ -6,7 +6,7 @@ export function AdditionalInfoCard({
   clinicName = "Serenity Health Clinic",
   address = "434 Rockaway Ave, 11212-5636",
   city = "Brooklyn New York",
-  tags = ["Medicine #459026", "Vaccine #78"],
+  tags = [],
 }) {
   const handleGetDirections = () => {
     const fullDestination = `${address}, ${city}`;

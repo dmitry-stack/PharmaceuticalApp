@@ -1,19 +1,18 @@
 import * as styles from "./DrugCard.module.css";
 import locationIcon from "@shared/assets/process/location.svg";
 import calendarIcon from "@shared/assets/process/calendar.svg";
+import { convertToISO8601 } from "@shared/utils/dateUtils";
 
 export function DrugCard({
   title,
   description,
-  location,
-  date,
-  time,
-  postCode,
+  location = "434 Rockaway Ave, ,BrooklynNew York",
+  startDate,
+  endDate,
+  time = "10 am - 4 pm Eastern Daylight Time ",
+  postCode = "11212-5636",
 }) {
   const handleAddToCalendar = () => {
-    const startDate = "20260628T100000Z";
-    const endDate = "20260702T160000Z";
-
     const fullLocation = `${location}, ${postCode || ""}`;
 
     const googleCalendarUrl = new URL(
@@ -23,10 +22,19 @@ export function DrugCard({
     googleCalendarUrl.searchParams.append("text", title);
     googleCalendarUrl.searchParams.append("details", description);
     googleCalendarUrl.searchParams.append("location", fullLocation);
-    googleCalendarUrl.searchParams.append("dates", `${startDate}/${endDate}`);
+
+    if (startDate && endDate) {
+      const startISO = convertToISO8601(startDate, false);
+      const endISO = convertToISO8601(endDate, true);
+      if (startISO && endISO) {
+        googleCalendarUrl.searchParams.append("dates", `${startISO}/${endISO}`);
+      }
+    }
 
     window.open(googleCalendarUrl.toString(), "_blank");
   };
+
+  const date = `${startDate} - ${endDate}`;
   return (
     <div className={styles.card}>
       <div className={styles.header}>
