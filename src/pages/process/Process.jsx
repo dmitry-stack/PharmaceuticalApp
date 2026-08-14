@@ -5,6 +5,10 @@ import { useDispatch } from "react-redux";
 import { setLastProduct } from "./lastProductSlice.js";
 import * as styles from "./Process.module.css";
 import { DrugCard } from "@/shared/ui/cards/DrugCard";
+import { AboutCard } from "@/shared/ui/cards/AboutCard";
+const aboutDescription =
+  "We will be conducting clinical trials of the new drug Migracalm-X, which is designed to treat acute forms of migraines. We are going to test its effectiveness on 200 patients who have been suffering from this disorder for many years. The upcoming clinical trials will allow us to evaluate the safety and efficacy of the drug, as well as obtain important data for its registration and release on the market.";
+
 export function Process() {
   const { type, id } = useParams();
   const dispatch = useDispatch();
@@ -30,9 +34,7 @@ export function Process() {
           location={"434 Rockaway Ave, ,BrooklynNew York"}
           postCode={"11212-5636"}
         />
-        <h1>
-          {data.title.charAt(0).toUpperCase() + data.title.slice(1)} #{data.id}
-        </h1>
+        <AboutCard description={aboutDescription} />
       </div>
       <div className={styles.column}>
         <h1>
