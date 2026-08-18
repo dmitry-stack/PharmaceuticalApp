@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import * as styles from "./Navbar.module.css";
 import homeIcon from "@shared/assets/navbar/home.svg";
 import tablesIcon from "@shared/assets/navbar/tables.svg";
@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLastProduct } from "./productSelectors";
 import { useToast } from "@/app/providers/toast/ToastProvider";
+import { TOAST_MESSAGES } from "@/shared/consts/messages";
+import { useClickOutside } from "@/shared/hooks/useClickOutside";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -29,31 +31,22 @@ export function Navbar() {
 
   const navBarRef = useRef(null);
 
-  useEffect(() => {
-    if (!profileIsOpen) return;
+  function hadleMainButtonInDevelopmentClick() {
+    setOpen(false);
+    showToast("Coming soon");
+  }
 
-    function handleClickOutside(e) {
-      if (profileRef.current && !profileRef.current.contains(e.target)) {
-        setProfileIsOpen(false);
-      }
-    }
+  useClickOutside({
+    isOpen: profileIsOpen,
+    ref: profileRef,
+    onClose: () => setProfileIsOpen(false),
+  });
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [profileIsOpen]);
-
-  useEffect(() => {
-    if (!open) return;
-
-    function handleClickOutside(e) {
-      if (navBarRef.current && !navBarRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]);
+  useClickOutside({
+    isOpen: open,
+    ref: navBarRef,
+    onClose: () => setOpen(false),
+  });
 
   return (
     <nav className={styles.navbar}>
@@ -104,10 +97,7 @@ export function Navbar() {
           <button
             className={styles.navItem}
             type="button"
-            onClick={() => {
-              setOpen(false);
-              showToast("Coming soon");
-            }}
+            onClick={() => hadleMainButtonInDevelopmentClick()}
           >
             <img src={documentationIcon} alt="Documentation" />
             Documentation
@@ -127,7 +117,7 @@ export function Navbar() {
               type="button"
               className={styles.icon}
               aria-label="Notifications"
-              onClick={() => showToast("Coming soon")}
+              onClick={() => showToast(TOAST_MESSAGES.COMING_SOON)}
             >
               <img src={notificationIcon} alt="Notifications" />
             </button>
@@ -135,7 +125,7 @@ export function Navbar() {
               type="button"
               className={styles.icon}
               aria-label="Settings"
-              onClick={() => showToast("Coming soon")}
+              onClick={() => showToast(TOAST_MESSAGES.COMING_SOON)}
             >
               <img src={settingsIcon} alt="Settings" />
             </button>
@@ -152,19 +142,19 @@ export function Navbar() {
                 <div className={styles.profilePopup}>
                   <button
                     className={styles.popupItem}
-                    onClick={() => showToast("Coming soon")}
+                    onClick={() => showToast(TOAST_MESSAGES.COMING_SOON)}
                   >
                     Profile
                   </button>
                   <button
                     className={styles.popupItem}
-                    onClick={() => showToast("Coming soon")}
+                    onClick={() => showToast(TOAST_MESSAGES.COMING_SOON)}
                   >
                     Settings
                   </button>
                   <button
                     className={styles.popupItem}
-                    onClick={() => showToast("Coming soon")}
+                    onClick={() => showToast(TOAST_MESSAGES.COMING_SOON)}
                   >
                     Log out
                   </button>
