@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as styles from "./Navbar.module.css";
 import homeIcon from "@shared/assets/navbar/home.svg";
 import tablesIcon from "@shared/assets/navbar/tables.svg";
@@ -15,6 +15,7 @@ import { useToast } from "@/app/providers/toast/ToastProvider";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [profileIsOpen, setProfileIsOpen] = useState(false);
 
   const lastProduct = useSelector(selectLastProduct);
   const showToast = useToast();
@@ -24,9 +25,39 @@ export function Navbar() {
       ? `/process/${lastProduct.type}/${lastProduct.id}`
       : "/tables";
 
+  const profileRef = useRef(null);
+
+  const navBarRef = useRef(null);
+
+  useEffect(() => {
+    if (!profileIsOpen) return;
+
+    function handleClickOutside(e) {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
+        setProfileIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [profileIsOpen]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handleClickOutside(e) {
+      if (navBarRef.current && !navBarRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
+
   return (
     <nav className={styles.navbar}>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={navBarRef}>
         <div className={styles.left}>
           <button
             type="button"
@@ -108,7 +139,38 @@ export function Navbar() {
             >
               <img src={settingsIcon} alt="Settings" />
             </button>
-            <img src={avatar} alt="User Avatar" />
+            <div className={styles.profileWrapper} ref={profileRef}>
+              <button
+                type="button"
+                className={styles.icon}
+                aria-label="Avater"
+                onClick={() => setProfileIsOpen((v) => !v)}
+              >
+                <img src={avatar} alt="User Avatar" />
+              </button>
+              {profileIsOpen && (
+                <div className={styles.profilePopup}>
+                  <button
+                    className={styles.popupItem}
+                    onClick={() => showToast("Coming soon")}
+                  >
+                    Profile
+                  </button>
+                  <button
+                    className={styles.popupItem}
+                    onClick={() => showToast("Coming soon")}
+                  >
+                    Settings
+                  </button>
+                  <button
+                    className={styles.popupItem}
+                    onClick={() => showToast("Coming soon")}
+                  >
+                    Log out
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
