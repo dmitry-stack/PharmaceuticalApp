@@ -2,6 +2,7 @@ import * as styles from "./DrugCard.module.css";
 import locationIcon from "@shared/assets/process/location.svg";
 import calendarIcon from "@shared/assets/process/calendar.svg";
 import { convertToISO8601 } from "@shared/utils/dateUtils";
+import { useToast } from "@/app/providers/toast/ToastProvider";
 
 export function DrugCard({
   title,
@@ -12,6 +13,7 @@ export function DrugCard({
   time = "10 am - 4 pm Eastern Daylight Time ",
   postCode = "11212-5636",
 }) {
+  const showToast = useToast();
   const handleAddToCalendar = () => {
     const fullLocation = `${location}, ${postCode || ""}`;
 
@@ -73,7 +75,13 @@ export function DrugCard({
       </div>
 
       <div className={styles.actions}>
-        <button type="button" className={styles.btnPrimary}>
+        <button
+          type="button"
+          className={styles.btnPrimary}
+          onClick={() =>
+            showToast("Process has started", "This process is in development")
+          }
+        >
           Start Process
         </button>
 

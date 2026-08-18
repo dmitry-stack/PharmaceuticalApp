@@ -11,11 +11,13 @@ import avatar from "@shared/assets/navbar/avatar.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLastProduct } from "./productSelectors";
+import { useToast } from "@/app/providers/toast/ToastProvider";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const lastProduct = useSelector(selectLastProduct);
+  const showToast = useToast();
 
   const processPath =
     lastProduct?.type && lastProduct?.id
@@ -71,7 +73,10 @@ export function Navbar() {
           <button
             className={styles.navItem}
             type="button"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              showToast("Coming soon");
+            }}
           >
             <img src={documentationIcon} alt="Documentation" />
             Documentation
@@ -91,10 +96,16 @@ export function Navbar() {
               type="button"
               className={styles.icon}
               aria-label="Notifications"
+              onClick={() => showToast("Coming soon")}
             >
               <img src={notificationIcon} alt="Notifications" />
             </button>
-            <button type="button" className={styles.icon} aria-label="Settings">
+            <button
+              type="button"
+              className={styles.icon}
+              aria-label="Settings"
+              onClick={() => showToast("Coming soon")}
+            >
               <img src={settingsIcon} alt="Settings" />
             </button>
             <img src={avatar} alt="User Avatar" />
