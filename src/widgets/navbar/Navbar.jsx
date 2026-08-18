@@ -10,11 +10,12 @@ import settingsIcon from "@shared/assets/navbar/settings.svg";
 import avatar from "@shared/assets/navbar/avatar.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { selectLastProduct } from "./productSelectors";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const lastProduct = useSelector((state) => state.lastProduct);
+  const lastProduct = useSelector(selectLastProduct);
 
   const processPath =
     lastProduct?.type && lastProduct?.id
