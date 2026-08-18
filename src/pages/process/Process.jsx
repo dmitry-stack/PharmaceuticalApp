@@ -24,7 +24,7 @@ export function Process() {
 
   const title = data?.title
     ? data.title.charAt(0).toUpperCase() + data.title.slice(1) + " #" + id
-    : "";
+    : `Untitled #${id}`;
 
   return (
     <div className={styles.container}>
