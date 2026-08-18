@@ -1,7 +1,7 @@
 .statusContainer {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   width: 120px;
   height: 4px;
 }
