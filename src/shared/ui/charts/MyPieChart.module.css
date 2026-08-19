@@ -53,15 +53,15 @@
 }
 
 .priclinical::before {
-  background-color: #3874ff;
+  background-color: var(--pie-chart-priclinical-bg);
 }
 
 .clinical::before {
-  background-color: #adc5ff;
+  background-color: var(--pie-chart-clinical-bg);
 }
 
 .approvals::before {
-  background-color: #0080c7;
+  background-color: var(--pie-chart-approvals-bg);
 }
 
 .legendLabel {

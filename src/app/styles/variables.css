@@ -10,7 +10,7 @@
   --secondary-color: #56627d;
   --accent-color: #3874ff;
   --background-color: #f5f7fa;
-  --background-color-header: #ffffff;
+  --background-color-white: #ffffff;
   --success-color: #25b003;
   --success-color-light: #dbf9d7;
   --error-color: #ed2000;
@@ -26,13 +26,13 @@
   --shadow-header: 0 1px 4px rgba(0, 0, 0, 0.05);
   --shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-  --color-text-1: #1f2937;
+  --color-text-1: var(--primary-color);
   --color-text-3: #6b7280;
   --color-border-2: #d1d5db;
   --color-border-3: #e0e3eb;
-  --color-surface-base: #ffffff;
+  --color-surface-base: var(--background-color-white);
   --color-surface-raised: #f8fafc;
-  --color-chart-1: #3874ff;
+  --color-chart-1: var(--accent-color);
   --color-chart-2: #5cbcf0;
 
   --navbar-border: #10182814;
@@ -45,6 +45,33 @@
   --process-track: #e2e7ee;
 
   --process-secondary-btn: #f5f7fa;
+
+  --manufacturer-logo: #0f1353;
+
+  --map-container: #e5e7eb;
+
+  --get-directions-hover: #cbd5e1;
+
+  --tag-badge-bg: #e3e6ed;
+  --tag-badge-color: #141828;
+
+  --icon-wrapper-bg: #c7ebff;
+
+  --drug-card-btn-primary-hover: #265ee6;
+  --drug-card-btn-secondary-hover: #f1f5f9;
+
+  --percentage-change-bg: #ffefca;
+  --percentage-change-color: #d36c44;
+  --percentage-change-border: #ffd08f;
+
+  --bar-chart-completed-bg: var(--accent-color);
+  --bar-chart-awaiting-bg: #e5edff;
+
+  --pie-chart-priclinical-bg: var(--accent-color);
+  --pie-chart-clinical-bg: #adc5ff;
+  --pie-chart-approvals-bg: #0080c7;
+
+  --nav-bar-sun-icon: #fff3e3;
 }
 
 html {

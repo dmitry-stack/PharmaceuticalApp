@@ -59,7 +59,7 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background-color: #c7ebff;
+  background-color: var(--icon-wrapper-bg);
 }
 
 .iconWrapper img {
@@ -122,7 +122,7 @@
 }
 
 .btnPrimary:hover {
-  background-color: #265ee6;
+  background-color: var(--drug-card-btn-primary-hover);
 }
 
 .btnSecondary {
@@ -133,7 +133,7 @@
 }
 
 .btnSecondary:hover {
-  background-color: #f1f5f9;
+  background-color: var(--drug-card-btn-secondary-hover);
 }
 
 .btnIcon {

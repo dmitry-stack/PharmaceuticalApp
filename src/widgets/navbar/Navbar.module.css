@@ -5,7 +5,7 @@
   padding: 0 16px;
   display: flex;
   align-items: center;
-  background-color: var(--background-color-header);
+  background-color: var(--background-color-white);
   box-shadow: var(--shadow-header);
   border-bottom: 1px solid var(--navbar-border);
   z-index: 10;
@@ -103,7 +103,7 @@
 }
 
 .sunIcon {
-  background-color: #fff3e3;
+  background-color: var(--nav-bar-sun-icon);
   border-radius: 50%;
 }
 

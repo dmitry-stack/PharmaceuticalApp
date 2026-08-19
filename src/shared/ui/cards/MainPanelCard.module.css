@@ -41,9 +41,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffefca;
-  color: #d36c44;
-  border: 1px solid #ffd08f;
+  background-color: var(--percentage-change-bg);
+  color: var(--percentage-change-color);
+  border: 1px solid var(--percentage-change-border);
   border-radius: 100px;
   padding: 2px 8px;
   font-size: 12px;
