@@ -23,7 +23,7 @@
   --radius-lg: 12px;
 
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-header: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-header: 0 1px 4px rgba(0, 0, 0, 0.05);
   --shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.1);
 
   --color-text-1: #1f2937;
@@ -35,7 +35,7 @@
   --color-chart-1: #3874ff;
   --color-chart-2: #5cbcf0;
 
-  --navbar-border: #101828;
+  --navbar-border: #10182814;
   --status-segment-1: #0097eb;
   --status-segment-2: #ed2000;
   --status-segment-3: #e5780b;
@@ -43,6 +43,8 @@
 
   --process-fill: #25b003;
   --process-track: #e2e7ee;
+
+  --process-secondary-btn: #f5f7fa;
 }
 
 html {

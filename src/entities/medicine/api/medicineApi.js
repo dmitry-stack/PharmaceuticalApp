@@ -21,6 +21,7 @@ const mapProductToMedicalData = (product) => {
     successReaction: product.rating > 4.5 ? "success" : "failure",
     processCurrent: current,
     processTotal: total,
+    description: product.description,
 
     statusSegments: [
       { value: ((product.id * 7) % 30) + 10, color: "var(--status-segment-1)" },
@@ -31,6 +32,7 @@ const mapProductToMedicalData = (product) => {
       },
       { value: ((product.id * 5) % 20) + 10, color: "var(--status-segment-4)" },
     ],
+    tags: product.tags,
   };
 };
 export const medicineApi = createApi({
@@ -47,7 +49,13 @@ export const medicineApi = createApi({
         };
       },
     }),
+    getMedicineById: builder.query({
+      query: (id) => `products/${id}`,
+      transformResponse: (response) => {
+        return mapProductToMedicalData(response);
+      },
+    }),
   }),
 });
 
-export const { useGetMedicineQuery } = medicineApi;
+export const { useGetMedicineQuery, useGetMedicineByIdQuery } = medicineApi;

@@ -16,12 +16,16 @@ const headers = {
 
 export function Layout() {
   const location = useLocation();
+  const isProcessPage = location.pathname.startsWith("/process");
   const header = headers[location.pathname] ?? headers["/"];
+
   return (
     <div className={styles.layout}>
       <Navbar />
       <div className={styles.content}>
-        <Header header={header.title} description={header.description} />
+        {!isProcessPage && (
+          <Header header={header.title} description={header.description} />
+        )}
         <main>
           <Outlet />
         </main>
