@@ -17,6 +17,25 @@ const chartData = data.map((entry) => ({
   fillValue: entry.pv,
   emptyValue: maxPv - entry.pv,
 }));
+function CustomTooltip({ active, payload }) {
+  if (active && payload && payload.length) {
+    const item = payload[0].payload;
+
+    return (
+      <div className={styles.tooltipCard}>
+        <span className={styles.tooltipHeader}>{item.name}</span>
+        <div className={styles.tooltipBody}>
+          <span className={styles.tooltipDot} />
+          <span className={styles.tooltipLabel}>PV</span>
+          <span className={styles.tooltipValue}>
+            {item.pv.toLocaleString()}
+          </span>
+        </div>
+      </div>
+    );
+  }
+  return null;
+}
 
 export function MyBarChart() {
   return (
@@ -30,13 +49,8 @@ export function MyBarChart() {
           >
             <Tooltip
               cursor={{ fill: "transparent" }}
-              contentStyle={{
-                minWidth: 60,
-                maxWidth: 120,
-                maxHeight: 60,
-                padding: 0,
-                fontSize: "0.85rem",
-              }}
+
+              content={<CustomTooltip />}
             />
             <Bar
               dataKey="fillValue"

@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  min-width: 0;
 }
 
 .summaryItem {
@@ -11,10 +12,16 @@
   align-items: center;
   gap: 14px;
   width: 100%;
+  min-width: 0;
 }
 
 .summaryText {
+  min-width: 0;
   width: 100%;
+}
+
+.summaryItem img {
+  flex: 0 0 56px;
 }
 
 .mainSummary p {
@@ -29,7 +36,7 @@
   line-height: 1.2;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .mainSummary {
     flex-direction: row;
     gap: 24px;

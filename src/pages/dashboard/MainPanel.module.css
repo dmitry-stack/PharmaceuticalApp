@@ -11,24 +11,27 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
+
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 769px) {
   .mainPanel {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     width: 100%;
     height: 100%;
   }
+}
+
+@media (min-width: 1024px) {
   .cardsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
-    gap: 24px;
-    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
