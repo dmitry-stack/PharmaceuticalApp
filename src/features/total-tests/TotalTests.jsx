@@ -1,7 +1,8 @@
 import * as styles from "./TotalTests.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import dropdownArrow from "@shared/assets/dropdown-arrow.svg";
 import { MyLineChart } from "@shared/ui/charts/MyLineChart";
+import { useClickOutside } from "@/shared/hooks/useClickOutside";
 const DATA_BY_RANGE = {
   "May 1 - 31, 2022": [
     { date: "01 May", total: 10, previous: 18 },
@@ -45,6 +46,12 @@ export function TotalTests() {
   const [selectedRange, setSelectedRange] = useState("May 1 - 31, 2022");
   const [isOpen, setIsOpen] = useState(false);
   const data = DATA_BY_RANGE[selectedRange] || [];
+  const dropDownRef = useRef(null);
+  useClickOutside({
+    isOpen: isOpen,
+    ref: dropDownRef,
+    onClose: () => setIsOpen(false),
+  });
 
   return (
     <>
@@ -61,6 +68,7 @@ export function TotalTests() {
           <div
             className={styles.dropdownContainer}
             style={{ position: "relative" }}
+            ref={dropDownRef}
           >
             <button
               className={styles.datePicker}

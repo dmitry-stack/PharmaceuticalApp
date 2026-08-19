@@ -41,11 +41,11 @@
 }
 
 .completed::before {
-  background-color: #3874ff;
+  background-color: var(--bar-chart-completed-bg);
 }
 
 .awaiting::before {
-  background-color: #e5edff;
+  background-color: var(--bar-chart-awaiting-bg);
 }
 
 .legendLabel {

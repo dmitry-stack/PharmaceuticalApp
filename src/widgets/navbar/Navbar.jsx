@@ -14,6 +14,7 @@ import { selectLastProduct } from "./productSelectors";
 import { useToast } from "@/app/providers/toast/ToastProvider";
 import { TOAST_MESSAGES } from "@/shared/consts/messages";
 import { useClickOutside } from "@/shared/hooks/useClickOutside";
+import { useTheme } from "@/shared/hooks/useTheme";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -21,6 +22,7 @@ export function Navbar() {
 
   const lastProduct = useSelector(selectLastProduct);
   const showToast = useToast();
+  const { toggleTheme } = useTheme();
 
   const processPath =
     lastProduct?.type && lastProduct?.id
@@ -110,6 +112,7 @@ export function Navbar() {
               type="button"
               className={styles.sunIcon}
               aria-label="Toggle theme"
+              onClick={toggleTheme}
             >
               <img src={sunIcon} alt="Theme" />
             </button>
@@ -132,7 +135,7 @@ export function Navbar() {
             <div className={styles.profileWrapper} ref={profileRef}>
               <button
                 type="button"
-                className={styles.icon}
+                className={styles.avatar}
                 aria-label="Avater"
                 onClick={() => setProfileIsOpen((v) => !v)}
               >

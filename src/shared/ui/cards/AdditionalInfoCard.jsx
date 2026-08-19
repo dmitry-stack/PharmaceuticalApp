@@ -1,4 +1,4 @@
-import { MapEmbed } from "../MapEmbed";
+import { MapEmbed } from "../map/MapEmbed";
 import directions from "@shared/assets/process/directions.svg";
 import * as styles from "./AdditionalInfoCard.module.css";
 

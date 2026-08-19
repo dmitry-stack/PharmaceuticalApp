@@ -29,7 +29,7 @@
 .manufacturerLogo {
   width: 44px;
   height: 44px;
-  background-color: #0f1353;
+  background-color: var(--manufacturer-logo);
   border-radius: 8px;
   flex-shrink: 0;
 }
@@ -45,7 +45,7 @@
   height: 200px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--map-container);
 }
 
 .mapContainer iframe {
@@ -83,7 +83,7 @@
 }
 
 .getDirectionsBtn:hover {
-  border-color: #cbd5e1;
+  border-color: var(--get-directions-hover);
 }
 
 .btnIcon {
@@ -98,8 +98,8 @@
 }
 
 .tagBadge {
-  background-color: #e3e6ed;
-  color: #141828;
+  background-color: var(--tag-badge-bg);
+  color: var(--tag-badge-color);
   font-size: 14px;
   font-weight: 500;
   padding: 6px 14px;
