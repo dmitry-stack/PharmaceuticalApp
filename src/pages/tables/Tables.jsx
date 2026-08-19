@@ -6,8 +6,12 @@ import nextArrow from "@shared/assets/tables/nextArrow.svg";
 import { ProcessCell } from "./tablesCells/ProcessCell";
 import { StatusCell } from "./tablesCells/StatusCell";
 import { useGetMedicineQuery } from "@entities/medicine/api/medicineApi";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useToast } from "@/app/providers/toast/ToastProvider";
+import { TOAST_MESSAGES } from "@/shared/consts/messages";
 const PAGE_SIZE = 6;
+
 export function Tables() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,6 +23,28 @@ export function Tables() {
     limit: isViewAll ? 0 : PAGE_SIZE,
     skip: isViewAll ? 0 : skip,
   });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const showToast = useToast();
+  const toastMessage = location.state?.toastMessage;
+  const toastDescription =
+    location.state?.toastDescription ??
+    TOAST_MESSAGES.SELECT_PRODUCT_DESCRIPTION;
+
+  const handledToastKey = useRef(null);
+
+  useEffect(() => {
+    if (toastMessage && handledToastKey.current !== location.key) {
+      handledToastKey.current = location.key;
+      showToast(toastMessage, toastDescription);
+      navigate(`${location.pathname}${location.search}`, {
+        replace: true,
+        state: {},
+      });
+    }
+  }, [toastMessage, toastDescription, location.pathname, navigate, showToast]);
+
   useEffect(() => {
     if (!searchParams.get("page") && !searchParams.get("viewAll")) {
       setSearchParams({ page: 1 }, { replace: true });
