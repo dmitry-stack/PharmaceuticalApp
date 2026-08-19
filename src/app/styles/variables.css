@@ -74,6 +74,25 @@
   --nav-bar-sun-icon: #fff3e3;
 }
 
+[data-theme="dark"] {
+  --primary-color: #f5f7fa;
+  --secondary-color: #9aa5b8;
+  --background-color: #0f1420;
+  --background-color-white: #161c2c;
+  --color-text-1: #e5e7eb;
+  --color-text-3: #9ca3af;
+  --color-border-2: #2a3142;
+  --color-border-3: #232a3a;
+  --color-surface-base: #161c2c;
+  --color-surface-raised: #1c2333;
+  --process-secondary-btn: #2a3142;
+
+  --nav-bar-sun-icon: #20365a;
+
+  --tag-badge-bg: #e5e7eb;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 html {
   min-height: 100%;
   background-color: var(--background-color);

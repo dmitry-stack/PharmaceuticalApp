@@ -42,6 +42,10 @@
   z-index: 20;
 }
 
+.navCenter.open {
+  background-color: var(--background-color-white);
+}
+
 .open {
   display: flex;
 }
@@ -90,7 +94,8 @@
 
 .icon,
 .sunIcon,
-.user {
+.user,
+.avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -102,6 +107,9 @@
   cursor: pointer;
 }
 
+[data-theme="dark"] .icon img {
+  filter: invert(1);
+}
 .sunIcon {
   background-color: var(--nav-bar-sun-icon);
   border-radius: 50%;
@@ -148,6 +156,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  color: var(--primary-color);
 }
 
 .popupItem:hover {
