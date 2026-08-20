@@ -27,7 +27,7 @@ export function Navbar() {
   const processPath =
     lastProduct?.type && lastProduct?.id
       ? `/process/${lastProduct.type}/${lastProduct.id}`
-      : "/tables";
+      : "/process";
 
   const profileRef = useRef(null);
 

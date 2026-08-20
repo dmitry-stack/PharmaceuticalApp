@@ -4,6 +4,7 @@ import { Tables } from "./pages/tables/Tables";
 import { Process } from "./pages/process/Process";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { ToastProvider } from "./app/providers/toast/ToastProvider";
+import { TOAST_MESSAGES } from "@/shared/consts/messages";
 
 function App() {
   return (
@@ -15,7 +16,16 @@ function App() {
             <Route path="/tables" element={<Tables />} />
             <Route
               path="/process"
-              element={<Navigate to="/tables" replace />}
+              element={
+                <Navigate
+                  to="/tables"
+                  replace
+                  state={{
+                    toastMessage: TOAST_MESSAGES.SELECT_PRODUCT,
+                    toastDescription: TOAST_MESSAGES.SELECT_PRODUCT_DESCRIPTION,
+                  }}
+                />
+              }
             />
             <Route path="/process/:type/:id" element={<Process />} />
           </Route>

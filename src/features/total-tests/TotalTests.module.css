@@ -5,21 +5,23 @@
 
 .totalTests {
   width: 100%;
-  padding: 24px 16px 0;
+  padding: 20px 12px 0;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .header {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .title {
   margin: 0;
   color: var(--color-text-1);
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -28,30 +30,37 @@
 .description {
   margin: 12px 0 0;
   color: var(--color-text-3);
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
 .datePicker {
-  width: 324px;
+  width: 100%;
   height: 52px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 16px;
-
   border: 1px solid var(--color-border-2);
-  border-radius: 2px;
-
+  border-radius: 8px;
   background: var(--color-surface-base);
   color: var(--color-text-3);
-
   font: inherit;
   font-size: 18px;
-
   cursor: pointer;
+}
+
+.datePicker span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.datePicker img {
+  width: 10px;
+  height: 5px;
+  flex: 0 0 10px;
 }
 
 .datePicker:hover {
@@ -64,11 +73,12 @@
 
 .chart {
   width: 100%;
-  height: 362px;
+  height: 400px;
 }
 
 .dropdownContainer {
   position: relative;
+  width: 100%;
 }
 
 .dropdownMenu {
@@ -108,41 +118,41 @@
   color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
   .totalTests {
-    flex-direction: row;
-    gap: 24px;
-  }
-  .totalTests {
-    padding: 20px 12px 0;
+    padding: 24px 16px 0;
   }
 
   .header {
-    flex-direction: column;
-    margin-bottom: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 48px;
   }
 
   .datePicker {
-    width: 100%;
+    width: 324px;
+  }
+
+  .dropdownContainer {
+    width: auto;
   }
 
   .title {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .description {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .chart {
-    height: 400px;
+    height: 362px;
   }
 }
 
 .totalTests h2 {
-  margin: 0;
+  margin: 0 0 8px;
   font-size: 1.5rem;
-  margin-bottom: 8px;
   color: var(--primary-color);
   line-height: 1.2;
 }
